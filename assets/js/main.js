@@ -1,3 +1,13 @@
+function getRootPath() {
+    // Check if the current page is in the 'pages' subdirectory
+    if (window.location.pathname.includes('/pages/')) {
+        // If so, the root is one level up
+        return '../';
+    }
+    // Otherwise, we're at the root
+    return '';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initApp();
 });
@@ -17,7 +27,7 @@ function updateHeader() {
         userActionLink.onclick = (e) => {
             e.preventDefault();
             logoutUser();
-            window.location.href = '/';
+            window.location.href = getRootPath() + 'index.html';
         };
     } else {
         userActionLink.innerHTML = '<i class="fa-solid fa-user"></i>';
@@ -97,7 +107,7 @@ function setupLoginForm() {
 
             const result = loginUser(email, password);
             if (result.success) {
-                window.location.href = '/';
+                window.location.href = getRootPath() + 'index.html';
             } else {
                 errorEl.style.display = 'block';
             }
@@ -128,7 +138,7 @@ function setupRegisterForm() {
             const result = registerUser(email, password);
             if (result.success) {
                 alert('Registration successful! Please login.');
-                window.location.href = '/pages/login.html';
+                window.location.href = getRootPath() + 'pages/login.html';
             } else {
                 emailError.textContent = result.message;
                 emailError.style.display = 'block';
@@ -155,13 +165,13 @@ function loadCartPage() {
 function loadCheckoutPage() {
     if (!isLoggedIn()) {
         alert("Please login to proceed to checkout.");
-        window.location.href = '/pages/login.html';
+        window.location.href = getRootPath() + 'pages/login.html';
         return;
     }
     const items = getCartItems();
     if (items.length === 0) {
         alert("Your cart is empty.");
-        window.location.href = '/pages/products.html';
+        window.location.href = getRootPath() + 'pages/products.html';
         return;
     }
 
@@ -189,7 +199,7 @@ function setupCheckoutForm() {
             document.getElementById('checkout-success').classList.remove('d-none');
             
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.href = getRootPath() + 'index.html';
             }, 4000);
         } else {
             alert("Please fill all required fields.");
