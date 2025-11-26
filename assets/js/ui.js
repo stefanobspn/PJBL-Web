@@ -38,7 +38,7 @@ function renderProductDetail(product) {
 // Renders the entire cart page
 function renderCartPage(cartItems) {
     const total = getCartTotal();
-    
+
     const itemsHtml = `
         <table class="cart-table">
             <thead>
@@ -89,6 +89,7 @@ function renderCartPage(cartItems) {
         </div>
     `;
 
+    // Wrap both sections in the grid layout container
     return `
         <div class="cart-layout">
             ${itemsHtml}

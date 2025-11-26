@@ -144,16 +144,20 @@ function setupRegisterForm() {
 }
 
 function loadCartPage() {
-    const cartContent = document.getElementById('cart-content');
-    const cartEmpty = document.getElementById('cart-empty');
-    if (cartContent) {
+    const cartContainer = document.getElementById('cart-container');
+    if (cartContainer) {
         const items = getCartItems();
         if (items.length > 0) {
-            cartContent.innerHTML = renderCartPage(items);
-            cartEmpty.classList.add('d-none');
+            // If there are items, render the full cart layout
+            cartContainer.innerHTML = renderCartPage(items);
         } else {
-            cartContent.innerHTML = '';
-            cartEmpty.classList.remove('d-none');
+            // If the cart is empty, render the "empty" message
+            cartContainer.innerHTML = `
+                <div class="text-center">
+                    <p>Your cart is empty.</p>
+                    <a href="products.html" class="btn btn-primary mt-lg">Continue Shopping</a>
+                </div>
+            `;
         }
     }
 }

@@ -436,12 +436,9 @@ main {
 }
 
 .cart-summary {
-    margin-top: var(--spacing-lg);
-    float: right;
-    width: 100%;
-    max-width: 400px;
     background-color: var(--color-gray-1);
     padding: var(--spacing-lg);
+    /* Float and width properties removed to allow grid layout to control this element */
 }
 
 .cart-summary h3 {
