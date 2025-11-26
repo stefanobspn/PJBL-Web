@@ -6,7 +6,7 @@ function formatPrice(price) {
 // Renders a single product card
 function renderProductCard(product) {
     return `
-        <a href="/pages/product-detail.html?id=${product.id}" class="product-card">
+        <a href="product-detail.html?id=${product.id}" class="product-card">
             <img src="../assets/img/product-${product.id.substring(1)}.jpg" alt="${product.name}" class="product-card-image">
             <div class="product-card-info">
                 <p class="product-card-category">${product.category}</p>
@@ -85,7 +85,7 @@ function renderCartPage(cartItems) {
                 <span>Total</span>
                 <span>${formatPrice(total)}</span>
             </div>
-            <a href="/pages/checkout.html" class="btn btn-primary w-100 mt-lg">Proceed to Checkout</a>
+            <a href="checkout.html" class="btn btn-primary w-100 mt-lg">Proceed to Checkout</a>
         </div>
     `;
 
