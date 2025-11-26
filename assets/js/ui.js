@@ -89,7 +89,12 @@ function renderCartPage(cartItems) {
         </div>
     `;
 
-    return itemsHtml + summaryHtml;
+    return `
+        <div class="cart-layout">
+            ${itemsHtml}
+            ${summaryHtml}
+        </div>
+    `;
 }
 
 // Renders checkout summary
