@@ -24,7 +24,7 @@ function updateHeader() {
         userActionLink.setAttribute('aria-label', 'Login');
         // Ensure href is correct for non-logged-in state
         if (window.location.pathname.includes('/pages/')) {
-            userActionLink.href = '/pages/login.html';
+            userActionLink.href = 'login.html';
         } else {
             userActionLink.href = 'pages/login.html';
         }
