@@ -70,7 +70,8 @@ function loadHomePage() {
         featuredGrid.innerHTML = products.map(p => {
              // Adjust image path for root index.html
             let cardHtml = renderProductCard(p);
-            return cardHtml.replace('../assets/img', 'assets/img');
+            cardHtml = cardHtml.replace('../assets/img', 'assets/img');
+            return cardHtml.replace('href="product-detail.html', 'href="pages/product-detail.html');
         }).join('');
     }
 }
