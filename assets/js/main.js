@@ -32,12 +32,7 @@ function updateHeader() {
     } else {
         userActionLink.innerHTML = '<i class="fa-solid fa-user"></i>';
         userActionLink.setAttribute('aria-label', 'Login');
-        // Ensure href is correct for non-logged-in state
-        if (window.location.pathname.includes('/pages/')) {
-            userActionLink.href = 'login.html';
-        } else {
-            userActionLink.href = 'pages/login.html';
-        }
+        // The static HTML has the correct href, so we will not overwrite it.
         userActionLink.onclick = null; // remove logout handler
     }
 }
