@@ -470,6 +470,12 @@ main {
     gap: var(--spacing-xl);
 }
 
+.cart-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+}
+
 /* 9. Utility Classes */
 .text-center { text-align: center; }
 .mt-lg { margin-top: var(--spacing-lg); }
