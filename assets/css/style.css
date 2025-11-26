@@ -499,6 +499,10 @@ main {
         grid-template-columns: 1fr;
     }
 
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
     .cart-summary {
         max-width: none;
     }
