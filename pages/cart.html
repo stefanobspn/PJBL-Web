@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Aura</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://kit.fontawesome.com/1a015cf62c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="/" class="nav-logo">Aura</a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/pages/products.html" class="nav-link">Products</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="/pages/cart.html" class="nav-action-link active" aria-label="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                    <a id="user-action-link" href="/pages/login.html" class="nav-action-link" aria-label="User Account">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Shopping Cart</h1>
+            <div id="cart-content">
+                <!-- Cart items will be injected by JavaScript -->
+            </div>
+             <div id="cart-empty" class="text-center d-none">
+                <p>Your cart is empty.</p>
+                <a href="/pages/products.html" class="btn btn-primary mt-lg">Continue Shopping</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Aura. Plis Pak Binar Kasih 100 Mau Masuk UGM.</p>
+        </div>
+    </footer>
+    
+    <!-- JS Scripts -->
+    <script src="../assets/js/db.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/ui.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
