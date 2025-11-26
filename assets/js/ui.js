@@ -35,63 +35,54 @@ function renderProductDetail(product) {
     `;
 }
 
-// Renders the entire cart page
 function renderCartPage(cartItems) {
     const total = getCartTotal();
 
     const itemsHtml = `
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th colspan="2">Product</th>
-                    <th class="hide-mobile">Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                ${cartItems.map(item => `
-                    <tr>
-                        <td><img src="../assets/img/product-${item.id.substring(1)}.jpg" alt="${item.name}" class="cart-item-image"></td>
-                        <td>
-                            <p class="cart-item-title">${item.name}</p>
-                            <p class="cart-item-price hide-desktop">${formatPrice(item.price)}</p>
-                        </td>
-                        <td class="hide-mobile">${formatPrice(item.price)}</td>
-                        <td>
-                            <input type="number" value="${item.qty}" min="1" class="form-input quantity-input" onchange="handleUpdateQuantity('${item.id}', this.value)">
-                        </td>
-                        <td>${formatPrice(item.price * item.qty)}</td>
-                        <td>
-                            <button class="btn-icon" onclick="handleRemoveFromCart('${item.id}')" aria-label="Remove item">
-                                <i class="fa-solid fa-times"></i>
-                            </button>
-                        </td>
-                    </tr>
-                `).join('')}
-            </tbody>
-        </table>
+        <div class="cart-items-list">
+            ${cartItems.map(item => `
+                <div class="cart-item-card">
+                    <img src="../assets/img/product-${item.id.substring(1)}.jpg" alt="${item.name}" class="cart-item-card-img">
+                    <div class="cart-item-details">
+                        <p class="cart-item-title">${item.name}</p>
+                        <p class="cart-item-price">${formatPrice(item.price)}</p>
+                        <div class="cart-item-actions">
+                            <div class="quantity-selector">
+                                <button onclick="handleUpdateQuantity('${item.id}', ${item.qty - 1})">-</button>
+                                <input type="number" value="${item.qty}" min="1" onchange="handleUpdateQuantity('${item.id}', this.value)">
+                                <button onclick="handleUpdateQuantity('${item.id}', ${item.qty + 1})">+</button>
+                            </div>
+                            <a href="#" onclick="handleRemoveFromCart('${item.id}')" class="cart-item-remove" aria-label="Remove item">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
     `;
 
     const summaryHtml = `
-        <div class="cart-summary">
-            <h3>Cart Total</h3>
+        <div class="cart-summary-sticky">
+            <h3>Order Summary</h3>
             <div class="summary-row">
                 <span>Subtotal</span>
                 <span>${formatPrice(total)}</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>FREE</span>
             </div>
             <div class="summary-row total">
                 <span>Total</span>
                 <span>${formatPrice(total)}</span>
             </div>
-            <a href="checkout.html" class="btn btn-primary w-100 mt-lg">Proceed to Checkout</a>
+            <a href="checkout.html" class="btn btn-primary w-100">Proceed to Checkout</a>
         </div>
     `;
 
-    // Wrap both sections in the grid layout container
     return `
-        <div class="cart-layout">
+        <div class="cart-page-layout">
             ${itemsHtml}
             ${summaryHtml}
         </div>

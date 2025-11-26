@@ -144,19 +144,19 @@ function setupRegisterForm() {
 }
 
 function loadCartPage() {
-    const cartContainer = document.getElementById('cart-container');
+    const cartContainer = document.getElementById('cart-page-container');
     if (cartContainer) {
         const items = getCartItems();
-        console.log('Cart Items:', items); // Debugging line
         if (items.length > 0) {
-            // If there are items, render the full cart layout
             cartContainer.innerHTML = renderCartPage(items);
         } else {
-            // If the cart is empty, render the "empty" message
+            // If the cart is empty, render a styled message
             cartContainer.innerHTML = `
-                <div class="text-center">
-                    <p>Your cart is empty.</p>
-                    <a href="products.html" class="btn btn-primary mt-lg">Continue Shopping</a>
+                <div class="cart-empty-message">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <h2>Your Cart is Empty</h2>
+                    <p>Looks like you haven't added anything to your cart yet.</p>
+                    <a href="products.html" class="btn btn-primary">Continue Shopping</a>
                 </div>
             `;
         }
