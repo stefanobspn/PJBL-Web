@@ -147,6 +147,7 @@ function loadCartPage() {
     const cartContainer = document.getElementById('cart-container');
     if (cartContainer) {
         const items = getCartItems();
+        console.log('Cart Items:', items); // Debugging line
         if (items.length > 0) {
             // If there are items, render the full cart layout
             cartContainer.innerHTML = renderCartPage(items);
