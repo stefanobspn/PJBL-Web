@@ -17,6 +17,9 @@ function adjustImagePath(product) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize the database first to ensure all data is available
+    initDB();
+    // Start the main application logic
     initApp();
 });
 

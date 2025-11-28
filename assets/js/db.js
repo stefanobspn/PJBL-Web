@@ -75,5 +75,3 @@ function getProductById(id) {
     return products.find(product => product.id === id);
 }
 
-// Initialize the DB on script load
-initDB();
