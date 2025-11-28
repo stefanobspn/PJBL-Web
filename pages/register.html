@@ -22,7 +22,7 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="cart-count" id="cart-count">0</span>
                     </a>
-                    <a id="user-action-link" href="login.html" class="nav-action-link active" aria-label="User Account">
+                    <a id="user-action-link" href="login.html" class="nav-action-link" aria-label="User Account">
                         <i class="fa-solid fa-user"></i>
                     </a>
                 </div>
@@ -33,27 +33,26 @@
     <main>
         <section class="container">
             <div class="form-container">
-                <h1 class="text-center">Register</h1>
+                <h1 class="section-title">Create Account</h1>
                 <form id="register-form">
+                    <div id="email-error" class="form-error"></div>
+                    <div id="password-error" class="form-error">Passwords do not match.</div>
                     <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label">Email Address</label>
                         <input type="email" id="email" class="form-input" required>
-                        <p id="email-error" class="form-error">Email already exists.</p>
                     </div>
                     <div class="form-group">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" id="password" class="form-input" minlength="6" required>
-                        <p class="form-error">Password must be at least 6 characters.</p>
+                        <input type="password" id="password" class="form-input" required>
                     </div>
                     <div class="form-group">
                         <label for="confirm-password" class="form-label">Confirm Password</label>
                         <input type="password" id="confirm-password" class="form-input" required>
-                        <p id="password-error" class="form-error">Passwords do not match.</p>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
                 </form>
-                 <p class="text-center mt-lg">
-                    Already have an account? <a href="login.html">Login here</a>
+                <p class="text-center mt-lg">
+                    Already have an account? <a href="login.html">Log in</a>
                 </p>
             </div>
         </section>
@@ -64,12 +63,7 @@
             <p>&copy; 2025 Aura. Plis Pak Binar Kasih 100 Mau Masuk UGM.</p>
         </div>
     </footer>
-
-    <!-- JS Scripts -->
-    <script src="../assets/js/db.js"></script>
-    <script src="../assets/js/auth.js"></script>
-    <script src="../assets/js/cart.js"></script>
-    <script src="../assets/js/ui.js"></script>
-    <script src="../assets/js/main.js"></script>
+    
+    <script src="../assets/js/app.js" defer></script>
 </body>
 </html>

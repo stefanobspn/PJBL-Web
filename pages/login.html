@@ -33,21 +33,21 @@
     <main>
         <section class="container">
             <div class="form-container">
-                <h1 class="text-center">Login</h1>
+                <h1 class="section-title">Login</h1>
                 <form id="login-form">
+                    <div id="form-error" class="form-error">Invalid email or password.</div>
                     <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label">Email Address</label>
                         <input type="email" id="email" class="form-input" required>
                     </div>
                     <div class="form-group">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-input" required>
                     </div>
-                    <p id="form-error" class="form-error">Invalid credentials. Please try again.</p>
                     <button type="submit" class="btn btn-primary w-100">Login</button>
                 </form>
                 <p class="text-center mt-lg">
-                    Don't have an account? <a href="register.html">Register here</a>
+                    Don't have an account? <a href="register.html">Sign up</a>
                 </p>
             </div>
         </section>
@@ -58,12 +58,7 @@
             <p>&copy; 2025 Aura. Plis Pak Binar Kasih 100 Mau Masuk UGM.</p>
         </div>
     </footer>
-
-    <!-- JS Scripts -->
-    <script src="../assets/js/db.js"></script>
-    <script src="../assets/js/auth.js"></script>
-    <script src="../assets/js/cart.js"></script>
-    <script src="../assets/js/ui.js"></script>
-    <script src="../assets/js/main.js"></script>
+    
+    <script src="../assets/js/app.js" defer></script>
 </body>
 </html>
