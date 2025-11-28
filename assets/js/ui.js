@@ -7,7 +7,7 @@ function formatPrice(price) {
 function renderProductCard(product) {
     return `
         <a href="product-detail.html?id=${product.id}" class="product-card">
-            <img src="../assets/img/product-${product.id.substring(1)}.jpg" alt="${product.name}" class="product-card-image">
+            <img src="${product.image}" alt="${product.name}" class="product-card-image">
             <div class="product-card-info">
                 <p class="product-card-category">${product.category}</p>
                 <h3 class="product-card-name">${product.name}</h3>
@@ -22,7 +22,7 @@ function renderProductDetail(product) {
     return `
         <div class="product-detail-layout">
             <div class="product-detail-image">
-                <img src="../assets/img/product-${product.id.substring(1)}.jpg" alt="${product.name}">
+                <img src="${product.image}" alt="${product.name}">
             </div>
             <div class="product-detail-info">
                 <p class="category">${product.category}</p>
@@ -42,7 +42,7 @@ function renderCartPage(cartItems) {
         <div class="cart-items-list">
             ${cartItems.map(item => `
                 <div class="cart-item-card">
-                    <img src="../assets/img/product-${item.id.substring(1)}.jpg" alt="${item.name}" class="cart-item-card-img">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-card-img">
                     <div class="cart-item-details">
                         <p class="cart-item-title">${item.name}</p>
                         <p class="cart-item-price">${formatPrice(item.price)}</p>

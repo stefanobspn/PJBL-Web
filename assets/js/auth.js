@@ -11,7 +11,7 @@ function registerUser(email, password) {
     if (users.find(user => user.email === email)) {
         return { success: false, message: 'Email already exists.' };
     }
-    const newUser = { id: Date.now().toString(), email, password }; // In a real app, hash the password
+    const newUser = { id: Date.now().toString(), email, password }; // kalau di real jangan gini ya dek, dihash dulu
     users.push(newUser);
     saveUsers(users);
     return { success: true, message: 'Registration successful.' };
@@ -19,7 +19,7 @@ function registerUser(email, password) {
 
 function loginUser(email, password) {
     const users = getUsers();
-    const user = users.find(u => u.email === email && u.password === password); // DO NOT do this in production
+    const user = users.find(u => u.email === email && u.password === password); // heheh
     if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         return { success: true };

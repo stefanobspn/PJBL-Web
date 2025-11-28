@@ -8,6 +8,14 @@ function getRootPath() {
     return '';
 }
 
+function adjustImagePath(product) {
+    const rootPath = getRootPath();
+    if (rootPath && !product.image.startsWith(rootPath)) {
+        return { ...product, image: `${rootPath}${product.image}` };
+    }
+    return product;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initApp();
 });
@@ -63,9 +71,8 @@ function loadHomePage() {
     if (featuredGrid) {
         const products = getProducts().slice(0, 3); // Show first 3 as featured
         featuredGrid.innerHTML = products.map(p => {
-             // Adjust image path for root index.html
             let cardHtml = renderProductCard(p);
-            cardHtml = cardHtml.replace('../assets/img', 'assets/img');
+            // Adjust the link to the product detail page for the root index.html
             return cardHtml.replace('href="product-detail.html', 'href="pages/product-detail.html');
         }).join('');
     }
@@ -74,7 +81,7 @@ function loadHomePage() {
 function loadProductsPage() {
     const productGrid = document.getElementById('product-grid');
     if (productGrid) {
-        const products = getProducts();
+        const products = getProducts().map(adjustImagePath);
         productGrid.innerHTML = products.map(renderProductCard).join('');
     }
 }
@@ -85,7 +92,8 @@ function loadProductDetailPage() {
         const productId = new URLSearchParams(window.location.search).get('id');
         const product = getProductById(productId);
         if (product) {
-            content.innerHTML = renderProductDetail(product);
+            const adjustedProduct = adjustImagePath(product);
+            content.innerHTML = renderProductDetail(adjustedProduct);
         } else {
             content.innerHTML = '<p>Product not found.</p>';
         }
@@ -146,7 +154,7 @@ function setupRegisterForm() {
 function loadCartPage() {
     const cartContainer = document.getElementById('cart-page-container');
     if (cartContainer) {
-        const items = getCartItems();
+        const items = getCartItems().map(adjustImagePath);
         if (items.length > 0) {
             cartContainer.innerHTML = renderCartPage(items);
         } else {
@@ -176,7 +184,8 @@ function loadCheckoutPage() {
         return;
     }
 
-    renderCheckoutSummary(items);
+    const adjustedItems = items.map(adjustImagePath);
+    renderCheckoutSummary(adjustedItems);
     setupCheckoutForm();
 }
 
